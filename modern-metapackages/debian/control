@@ -1,0 +1,21 @@
+Source: modern-metapackages
+Section: metapackages
+Priority: optional
+Maintainer: Michael Fincham <michael@hotplate.co.nz>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.6
+Homepage: https://modern.gen.nz/
+
+Package: modern
+Architecture: all
+Depends:
+ ${misc:Depends}, i3, xfce4-terminal, xinit
+Recommends:
+ chromium
+Suggests:
+ sylpheed
+Description: Metapackage for Modern desktop
+ Modern is a minimal tiling desktop environment.
+ .
+ This metapackage depends on the core components of Modern and their
+ dependencies.
