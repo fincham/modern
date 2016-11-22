@@ -1,6 +1,6 @@
 Package: modern
 Source: modern-metapackages
-Version: 0
+Version: 20161122
 Architecture: all
 Maintainer: Michael Fincham <michael@hotplate.co.nz>
 Installed-Size: 26
