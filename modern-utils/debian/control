@@ -9,7 +9,7 @@ Homepage: https://modern.gen.nz/
 Package: modern-utils
 Architecture: all
 Depends:
- ${misc:Depends}
+ ${misc:Depends}, python3-xdg 
 Section: utils
 Multi-Arch: foreign
 Description: Modern desktop utilities
