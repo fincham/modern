@@ -1,3 +1,9 @@
+modern-metapackages (20190128) unstable; urgency=high
+
+  * Adds needed dependencies and the Modern session manager.
+
+ -- Michael Fincham <michael@hotplate.co.nz>  Mon, 28 Jan 2019 16:10:39 +1300
+
 modern-metapackages (20161122) unstable; urgency=high
 
   * Initial version.

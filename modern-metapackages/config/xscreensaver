@@ -1,0 +1,29 @@
+xscreensaver.timeout:	1:00:00
+xscreensaver.lock:		True
+xscreensaver.lockTimeout:	0:00:00
+xscreensaver.splash:		False
+xscreensaver.fade:		True
+xscreensaver.dpmsEnabled:	True
+xscreensaver.dpmsQuickOff:	True
+xscreensaver.dpmsStandby:	2:00:00
+xscreensaver.dpmsSuspend:	2:00:00
+xscreensaver.dpmsOff:	4:00:00
+xscreensaver.grabDesktopImages:  False
+xscreensaver.grabVideoFrames:    False
+xscreensaver.chooseRandomImages: False
+xscreensaver.imageDirectory:	
+xscreensaver.mode:		blank
+xscreensaver.selected:	-1
+xscreensaver.textMode:	date
+xscreensaver.textURL:	disabled
+
+xscreensaver.Dialog.background             : #222222
+xscreensaver.Dialog.bottomShadowColor      : #222222
+xscreensaver.Dialog.Button.background      : #444444
+xscreensaver.Dialog.Button.foreground      : #ffffff
+xscreensaver.Dialog.foreground             : #dddddd
+xscreensaver.Dialog.text.background        : #444444
+xscreensaver.Dialog.text.foreground        : #ffffff
+xscreensaver.Dialog.topShadowColor         : #222222
+xscreensaver.passwd.thermometer.background : #000000
+xscreensaver.passwd.thermometer.foreground : #777777

@@ -1,5 +1,5 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: modern-metapackages
+Upstream-Name: modern
 
 Files: *
 Copyright: 2016 Michael Fincham <michael@hotplate.co.nz>

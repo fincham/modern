@@ -1,1 +1,7 @@
 inspiration/
+*.dsc
+*.build
+*.buildinfo
+*.changes
+*.deb
+*.tar.xz

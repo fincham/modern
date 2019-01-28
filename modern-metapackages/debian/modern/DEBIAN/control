@@ -1,17 +1,14 @@
 Package: modern
 Source: modern-metapackages
-Version: 20161122
+Version: 20190128
 Architecture: all
 Maintainer: Michael Fincham <michael@hotplate.co.nz>
-Installed-Size: 26
-Depends: i3, xfce4-terminal, xinit
-Recommends: chromium
-Suggests: sylpheed
+Installed-Size: 4318
+Depends: compton, dunst, feh, gvfs-bin, i3-wm, i3status, libnotify-bin, lightdm | x-display-manager, network-manager, onboard, pcscd, pinentry-gnome3, psmisc, pulseaudio, python3, scdaemon, suckless-tools, sudo, vim, xfce4-power-manager, xfce4-terminal, xinit, xinput, xscreensaver, xserver-xorg, pavucontrol, dirmngr
+Provides: x-session-manager
 Section: metapackages
 Priority: optional
 Homepage: https://modern.gen.nz/
-Description: Metapackage for Modern desktop
- Modern is a minimal tiling desktop environment.
- .
- This metapackage depends on the core components of Modern and their
- dependencies.
+Description: Minimalist tiling desktop environment
+ This package depends on the core components of Modern as well
+ as providing the Modern session and configuration manager.

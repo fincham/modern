@@ -1,0 +1,69 @@
+#!/bin/bash
+
+# Starts any pre-window-manager tasks needed, then hands over control to i3
+
+mkdir -m 0700 -p "${XDG_RUNTIME_DIR}/modern"
+mkdir -m 0750 -p "${HOME}/.config/modern" || true
+
+# start dunst early to avoid dbus restarting it later
+dunst -config "/usr/share/modern/config/dunst" &
+
+# in case ${HOME} is readonly due to a horrible mishap, allow config to write to a temporary location
+if [ -d "${HOME}/.config/modern" ]; then
+    export MODERN_CONFIG_DIR="${HOME}/.config/modern"
+else
+    mkdir "${XDG_RUNTIME_DIR}/modern/config"
+    export MODERN_CONFIG_DIR="${XDG_RUNTIME_DIR}/modern/config"
+fi
+
+# avoid needing to modify any files to set the GTK 2 themes
+export GTK2_RC_FILES="/usr/share/modern/config/gtk2"
+
+# wallpaper can be manually specified
+if [ -f "${MODERN_CONFIG_DIR}/wallpaper" ]; then
+    feh --bg-fill --no-fehbg "${MODERN_CONFIG_DIR}/wallpaper"
+else
+    feh --bg-fill --no-fehbg "$(/usr/share/modern/bin/select_wallpaper.py)"
+fi
+
+compton --backend glx --paint-on-overlay --vsync opengl-swc &
+
+xrdb < /usr/share/modern/config/xscreensaver
+/usr/share/xscreensaver/xscreensaver-wrapper.sh -no-splash &
+
+# pause dunst when the screen is locked, resume when unlocked, kill keys in memory on lock
+xscreensaver-command -watch | /usr/share/modern/bin/lock_watch.py &
+
+xfce4-power-manager --no-daemon &
+
+if /usr/sbin/laptop-detect; then 
+    # attempt to turn on the tray icon if this is a laptop
+    xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/show-tray-icon -s 1
+    
+    # set up better scrolling
+    mouse=$(xinput | fgrep -i ' touchpad' | sed -e 's/.*id=\([^\t]*\).*/\1/')
+
+    if xinput | fgrep -i ' touchpad' | grep -q -i 'synaptics'; then
+        # Try and handle Synaptics touchpads (e.g. Thinkpad)
+        xinput set-prop $mouse 285 1 # natural scrolling
+        xinput set-prop $mouse 300 0 # nuke horizontal scrolling
+        xinput set-prop $mouse 293 {1 1} # two-finger click for right-click
+    fi
+
+    if xinput | fgrep -i ' touchpad' | grep -q -i 'type cover'; then
+        # Try and handle Microsoft Surfacet tablet touchpads
+        xinput set-button-map $mouse 1 2 3 4 5 0 0 # nuke horizontal scrolling for < gtk3
+        xinput set-prop $mouse 295 {1 1} # two-finger click for right-click
+        xinput set-prop $mouse 275 1 # natural scrolling
+    fi
+fi
+
+# try and make xsession less of an info leak / disk filler
+rm -f "${HOME}/.xsession-errors"
+ln -s "/dev/null" "${HOME}/.xsession-errors"
+
+if [ -x "${HOME}/.config/modern/bin/on-login" ]; then
+    ${HOME}/.config/modern/bin/on-login
+fi
+
+exec i3 -c /usr/share/modern/config/i3

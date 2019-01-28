@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Modern
+Comment=Minimalist tiling desktop environment
+Exec=modern-session
+TryExec=modern-session
+Type=Application
+X-LightDM-DesktopName=Modern
+DesktopNames=Modern
+Keywords=tiling;wm;windowmanager;window;manager;
