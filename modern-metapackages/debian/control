@@ -11,7 +11,7 @@ Architecture: all
 Provides: x-session-manager
 Suggests: lightdm | x-display-manager
 Depends:
- ${misc:Depends}, compton, dunst, feh, gvfs-bin, i3-wm, i3status, libnotify-bin, network-manager, onboard, pcscd, pinentry-gnome3, psmisc, pulseaudio, python3, scdaemon, suckless-tools, sudo, vim, xfce4-power-manager, xfce4-terminal, xinit, xinput, xscreensaver, xserver-xorg, pavucontrol, dirmngr, fonts-noto-color-emoji
+ ${misc:Depends}, compton, dirmngr, dunst, feh, fonts-noto-color-emoji, gnome-themes-extra, gvfs-bin, i3status, i3-wm, libnotify-bin, network-manager, onboard, pavucontrol, pcscd, pinentry-gnome3, psmisc, pulseaudio, python3, scdaemon, suckless-tools, sudo, vim, xfce4-power-manager, xfce4-terminal, xinit, xinput, xscreensaver, xserver-xorg
 Description: Minimalist tiling desktop environment
  This package depends on the core components of Modern as well
  as providing the Modern session and configuration manager.
